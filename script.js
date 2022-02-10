@@ -20,7 +20,7 @@ const compareGuesses = (userGuess, computerGuess, targetGuess) => {
 const updateScore = announceWinner => {
   if (announceWinner === "human") {
     humanScore ++;
-  } else {
+  } else if (winner === 'computer') {
     computerScore ++;
   }
 };
