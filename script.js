@@ -3,7 +3,35 @@ let computerScore = 0;
 let currentRoundNumber = 1;
 
 // generate random number at the start of each new round
-const generateTarget = () => {
-    return Math.floor(Math.random() * 10);
-}
+const generateTarget = () => Math.floor(Math.random() * 10);
 
+//This function will be called each round to determine which guess is closest to the target number
+const compareGuesses = (userGuess, computerGuess, secretNumber) => {
+    if (secretNumber < userGuess && secretNumber < computerGuess) {
+        if (userGuess < computerGuess) {
+            return true;
+        } else {
+            return false;
+        }
+    } else if (userGuess < secretNumber < computerGuess) {
+        if (secretNumber - userGuess === computerGuess - secretNumber) {
+            return true;
+        } else if (secretNumber - userGuess < computerGuess - secretNumber) {
+            return true;
+        } else {
+            return false;
+        }
+    } else if (userGuess < secretNumber && computerGuess < secretNumber) {
+        if (userGuess > computerGuess) {    
+            return true;
+        } else {
+            return false;
+        }
+    } else if (userGuess === secretNumber) {
+        return true;
+    } else if (computerGuess === secretNumber) {
+        return false;
+    } else {
+        alert('Error');
+    }
+}
