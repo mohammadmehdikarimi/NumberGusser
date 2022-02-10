@@ -43,7 +43,7 @@ const compareGuesses = (userGuess, computerGuess, targetGuess) => {
   */
 };
 
-// updates score of one player based on how is the winner
+// updates score of one player based on who is the winner
 const updateScore = (announceWinner) => {
   if (announceWinner === "human") {
     humanScore++;
@@ -52,5 +52,5 @@ const updateScore = (announceWinner) => {
   }
 };
 
-// update the round number after each round
+// increase round number by one after each round
 const advanceRound = () => currentRoundNumber++;
